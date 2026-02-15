@@ -295,15 +295,10 @@ h2 {
 /* Footer */
 footer { text-align: center; padding: 30px; background-color: #2c3e50; color: #bbb; margin-top: 40px; font-size: 0.9rem; }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .job-card { flex-direction: column; }
-    .job-logo img { width: 60px; height: 60px; }
-    .media-gallery { grid-template-columns: 1fr; }
-    .header-container { flex-direction: column; gap: 20px; }
-}
 
-/* --- MOBILE NAVIGATION (HAMBURGER MENU) --- */
+/* =========================================
+   MOBILE RESPONSIVENESS & HAMBURGER MENU
+   ========================================= */
 
 /* 1. The Hamburger Button (Hidden on Desktop) */
 .hamburger {
@@ -321,8 +316,12 @@ footer { text-align: center; padding: 30px; background-color: #2c3e50; color: #b
 /* 2. Mobile Styles (Only triggers on screens smaller than 768px) */
 @media (max-width: 768px) {
     
+    /* --- Header & Navigation --- */
     .header-container {
         position: relative; /* Needed to position the menu */
+        flex-direction: column; /* Stack logo and hamburger if needed */
+        align-items: flex-start; /* Align logo left */
+        padding-left: 20px;
     }
 
     /* Show the Hamburger Button */
@@ -336,13 +335,14 @@ footer { text-align: center; padding: 30px; background-color: #2c3e50; color: #b
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 80px; /* Pushes it below the header */
+        top: 70px; /* Pushes it below the header */
         left: 0;
         background-color: #fff;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         padding: 20px 0;
         z-index: 1000;
         text-align: center;
+        gap: 0; /* Remove default gap */
     }
 
     /* The 'active' class will be added by JavaScript to SHOW the menu */
@@ -352,5 +352,62 @@ footer { text-align: center; padding: 30px; background-color: #2c3e50; color: #b
 
     nav ul li {
         margin: 15px 0;
+    }
+
+    /* --- General Grid & Flex Adjustments --- */
+    .job-card { flex-direction: column; }
+    .job-logo img { width: 60px; height: 60px; }
+    .media-gallery { grid-template-columns: 1fr; }
+
+
+    /* --- NEW: MOBILE ABOUT/HERO SECTION FIX --- */
+    /* This fixes the side-by-side layout of the profile pic and text */
+    
+    .split-layout {
+        flex-direction: column; /* Stack image on top of text */
+        align-items: center;    /* Center everything */
+        gap: 30px;
+    }
+
+    .profile-image-container {
+        max-width: 280px;      /* Make image slightly smaller on phone */
+        width: 100%;
+        margin: 0 auto;        /* Ensure it is centered */
+    }
+
+    .about-content {
+        text-align: center;    /* Center the text */
+        padding-top: 0;
+    }
+
+    .about-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Center the social links on mobile */
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .social-links a {
+        margin-right: 0;
+    }
+
+    /* Stack the action buttons vertically if needed */
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .btn {
+        margin-right: 0;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
     }
 }
