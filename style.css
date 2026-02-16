@@ -141,13 +141,6 @@ nav a:hover, nav a.active {
 
 .primary-btn:hover { background-color: #0056b3; border-color: #0056b3; }
 
-.secondary-btn {
-    background-color: transparent;
-    color: #007bff;
-    border: 2px solid #007bff;
-}
-
-.secondary-btn:hover { background-color: #007bff; color: #fff; }
 
 /* --- SECTIONS (Education, Skills, Interests) --- */
 .section-divider {
